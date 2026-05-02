@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
 import { About } from '../components/About';
+import { Skills } from '../components/Skills';
 
 // Welcome to the new portfolio!
 ---
@@ -12,5 +13,6 @@ import { About } from '../components/About';
 	<main>
 		<Hero client:load />
 		<About client:load />
+		<Skills client:load />
 	</main>
 </Layout>
