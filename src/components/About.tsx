@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import pkg from 'lucide-react';
-const { Bot, Code2, Server, Zap } = pkg;
+import { Bot, Code2, Server, Zap } from 'lucide-react';
 import { cn } from '../utils/utils';
 
 export function About() {
