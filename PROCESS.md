@@ -10,11 +10,11 @@ This document tracks the steps, branches, and commits for building the Senior Fr
 - [x] `feature/theme-toggle`: Dark + Light theme with smooth toggle (persist preference)
 - [x] `feature/hero-section`: Hero + About Me sections
 - [x] `feature/skills-section`: Interactive skills display
-- [ ] `feature/experience-timeline`: Experience timeline UI
+- [x] `feature/experience-timeline`: Experience timeline UI
 - [ ] `feature/project-cards`: Interactive project cards
 - [ ] `feature/ai-section`: AI & Workflow section
 - [ ] `feature/contact-and-polish`: Contact section, SEO, and final polish
 
 ## Current Status
-- Currently on branch: `feature/experience-timeline`
-- Next up: `feature/project-cards`
+- Currently on branch: `feature/project-cards`
+- Next up: `feature/ai-section`
