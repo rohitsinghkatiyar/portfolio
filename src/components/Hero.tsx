@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import pkg from 'lucide-react';
+const { ArrowRight, Download, Github, Linkedin, Mail } = pkg;
 import { cn } from '../utils/utils';
 
 export function Hero() {

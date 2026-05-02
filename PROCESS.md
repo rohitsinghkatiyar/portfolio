@@ -11,10 +11,10 @@ This document tracks the steps, branches, and commits for building the Senior Fr
 - [x] `feature/hero-section`: Hero + About Me sections
 - [x] `feature/skills-section`: Interactive skills display
 - [x] `feature/experience-timeline`: Experience timeline UI
-- [ ] `feature/project-cards`: Interactive project cards
+- [x] `feature/project-cards`: Interactive project cards
 - [ ] `feature/ai-section`: AI & Workflow section
 - [ ] `feature/contact-and-polish`: Contact section, SEO, and final polish
 
 ## Current Status
-- Currently on branch: `feature/project-cards`
-- Next up: `feature/ai-section`
+- Currently on branch: `feature/ai-section`
+- Next up: `feature/contact-and-polish`
