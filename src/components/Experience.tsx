@@ -1,35 +1,52 @@
 import { motion } from 'framer-motion';
 
-export function Experience() {
-  const experiences = [
-    {
-      company: 'Softude',
-      role: 'Senior Frontend Engineer',
-      duration: 'Recent',
-      achievements: [
-        'Architected and implemented a cost simulation system with complex recalculation logic.',
-        'Led the successful migration of legacy codebase from React 16 to 18, and CRA to Vite, significantly improving build times and developer experience.',
-        'Integrated complex backend services for PDF and Excel generation workflows.',
-        'Ensured high performance and maintainability across enterprise-scale applications.'
-      ]
-    },
-    {
-      company: 'TechRadix',
-      role: 'Frontend Engineer',
-      duration: 'Previous',
-      achievements: [
-        'Built a B2B SaaS platform from scratch, delivering the MVP in under 90 days.',
-        'Improved developer efficiency by 30% through the implementation of a unified UI component library.',
-        'Increased user engagement by 40% via UX overhaul and performance optimizations.',
-        'Integrated an LLM-powered chatbot to automate customer support workflows.',
-        'Mentored junior developers and established code review best practices.'
-      ]
-    }
-  ];
+const experiences = [
+  {
+    company: 'Softude',
+    role: 'Senior Frontend Engineer',
+    duration: 'Recent',
+    period: '2022 – Present',
+    accent: '#ff6b9d',
+    badge: '🏭 Manufacturing Tech',
+    badgeColor: '#ff6b9d',
+    achievements: [
+      'Architected a cost simulation system for manufacturing production lines with complex recalculation logic — handling real factory cost models.',
+      'Led React 16 → 18 migration and CRA → Vite move, dramatically slashing build times and shipping velocity.',
+      'Integrated PDF and Excel generation pipelines for industrial reporting workflows.',
+      'Maintained high-performance, enterprise-scale frontend across complex data-heavy dashboards.',
+    ],
+  },
+  {
+    company: 'TechRadix',
+    role: 'Frontend Engineer',
+    duration: 'Previous',
+    period: '2020 – 2022',
+    accent: '#63e2b7',
+    badge: '🚀 SaaS',
+    badgeColor: '#63e2b7',
+    achievements: [
+      'Built a full B2B SaaS platform from zero to MVP — shipped in under 90 days.',
+      'Boosted developer efficiency 30% by architecting a unified in-house component library.',
+      'Drove 40% uplift in user engagement through UX overhaul and performance optimization.',
+      'Integrated an LLM-powered support chatbot, reducing ticket load significantly.',
+      'Mentored junior engineers and established code review culture.',
+    ],
+  },
+];
 
+export function Experience() {
   return (
-    <section id="experience" className="py-24 relative">
-      <div className="container px-6 mx-auto max-w-4xl">
+    <section id="experience" className="py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-[150px]"
+          style={{ background: 'radial-gradient(circle, rgba(255,107,157,0.06) 0%, transparent 70%)' }}
+        />
+      </div>
+
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,59 +54,135 @@ export function Experience() {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Experience
+          <span className="section-label w-fit mb-4 block">
+            <span style={{ color: '#ff6b9d' }}>✦</span>
+            Work History
+          </span>
+          <h2
+            className="font-display font-bold"
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#f0ecff' }}
+          >
+            Pit{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #ff6b9d, #ffb347)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Stops.
+            </span>
           </h2>
-          <div className="w-20 h-1 bg-foreground mb-8" />
+          <p className="mt-3 text-base" style={{ color: '#6e6e88' }}>
+            Every stop was a full-throttle sprint. No coasting.
+          </p>
         </motion.div>
 
-        <div className="space-y-12">
-          {experiences.map((exp, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.2 }}
-              className="relative pl-8 md:pl-0"
-            >
-              <div className="md:grid md:grid-cols-5 md:gap-8 items-start">
-                
-                {/* Timeline Line & Dot (Mobile) */}
-                <div className="absolute left-0 top-2 bottom-0 w-px bg-border md:hidden" />
-                <div className="absolute left-[-4px] top-2 h-2 w-2 rounded-full bg-primary md:hidden" />
+        {/* Timeline */}
+        <div className="relative">
+          {/* Timeline line */}
+          <div
+            className="absolute left-6 top-0 bottom-0 w-px hidden md:block"
+            style={{ background: 'linear-gradient(to bottom, rgba(255,107,157,0.4), rgba(99,226,183,0.4))' }}
+          />
 
-                {/* Left Side: Meta (Desktop) */}
-                <div className="md:col-span-1 md:text-right mb-4 md:mb-0 relative">
-                  <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-1">
-                    {exp.duration}
+          <div className="space-y-10">
+            {experiences.map((exp, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                className="relative md:pl-20"
+              >
+                {/* Timeline dot (desktop) */}
+                <div
+                  className="hidden md:flex absolute left-[16px] top-6 w-5 h-5 rounded-full items-center justify-center ring-4 z-10"
+                  style={{
+                    background: exp.accent,
+                    ringColor: '#0d0d12',
+                    boxShadow: `0 0 16px ${exp.accent}55`,
+                  }}
+                >
+                  <div className="w-2 h-2 rounded-full bg-[#0d0d12]" />
+                </div>
+
+                {/* Card */}
+                <div
+                  className="rounded-2xl p-7 group transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    background: 'var(--bg-surface)',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                  }}
+                  onMouseEnter={e => {
+                    const el = e.currentTarget as HTMLDivElement;
+                    el.style.borderColor = exp.accent + '35';
+                    el.style.boxShadow = `0 0 40px ${exp.accent}15`;
+                  }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget as HTMLDivElement;
+                    el.style.borderColor = 'rgba(255,255,255,0.06)';
+                    el.style.boxShadow = '';
+                  }}
+                >
+                  {/* Left accent bar */}
+                  <div
+                    className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: exp.accent }}
+                  />
+
+                  {/* Card header */}
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-6">
+                    <div>
+                      <div className="flex items-center gap-3 mb-1 flex-wrap">
+                        <h3 className="font-display font-bold text-xl" style={{ color: '#f0ecff' }}>
+                          {exp.company}
+                        </h3>
+                        <span
+                          className="text-xs font-mono px-2.5 py-1 rounded-full"
+                          style={{
+                            background: exp.accent + '15',
+                            color: exp.accent,
+                            border: `1px solid ${exp.accent}30`,
+                          }}
+                        >
+                          {exp.badge}
+                        </span>
+                      </div>
+                      <p className="font-medium" style={{ color: exp.accent }}>
+                        {exp.role}
+                      </p>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <div
+                        className="text-xs font-mono px-3 py-1 rounded-lg w-fit ml-auto"
+                        style={{ background: 'rgba(255,255,255,0.04)', color: '#6e6e88' }}
+                      >
+                        {exp.period}
+                      </div>
+                    </div>
                   </div>
-                  <div className="font-semibold text-lg">{exp.company}</div>
-                </div>
 
-                {/* Timeline Line & Dot (Desktop) */}
-                <div className="hidden md:flex flex-col items-center justify-start relative pt-2">
-                  <div className="h-3 w-3 rounded-full bg-primary z-10 ring-4 ring-background" />
-                  <div className="absolute top-5 bottom-[-3rem] w-px bg-border" />
-                </div>
-
-                {/* Right Side: Content */}
-                <div className="md:col-span-3 pb-8">
-                  <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
-                    {exp.role}
-                  </h3>
+                  {/* Achievements */}
                   <ul className="space-y-3">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary/50 shrink-0" />
-                        <span>{achievement}</span>
+                    {exp.achievements.map((a, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: '#6e6e88' }}>
+                        <span
+                          className="shrink-0 mt-0.5 font-mono font-bold text-xs"
+                          style={{ color: exp.accent }}
+                        >
+                          →
+                        </span>
+                        <span>{a}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
