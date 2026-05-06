@@ -30,6 +30,7 @@
     --accent-foreground: #0891b2;
     --border: #e2e8f0;
   }
+
   .dark {
     --background: #020617;
     --foreground: #f8fafc;
@@ -49,6 +50,7 @@
   * {
     border-color: var(--border);
   }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -63,6 +65,7 @@
   .glass {
     @apply bg-background/60 backdrop-blur-md border border-border/50 shadow-sm;
   }
+
   .glass-card {
     @apply bg-card/40 backdrop-blur-lg border border-border/40 shadow-xl;
   }

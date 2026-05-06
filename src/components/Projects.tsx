@@ -55,8 +55,14 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-24 relative bg-muted/20">
-      <div className="container px-6 mx-auto">
+    <section id="projects" className="py-24 relative bg-muted/20 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[600px] bg-primary/10 rounded-full blur-[150px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:100%_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+      </div>
+
+      <div className="container px-6 mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +75,7 @@ export function Projects() {
           </h2>
           <div className="w-20 h-1 bg-foreground mb-8" />
           <p className="text-muted-foreground text-lg max-w-2xl">
-            A showcase of enterprise applications, SaaS platforms, and high-performance interfaces I've built.
+            A showcase of enterprise applications, SaaS platforms, and high-performance interfaces I've built. (No 'To-Do' apps here, I promise).
           </p>
         </motion.div>
 

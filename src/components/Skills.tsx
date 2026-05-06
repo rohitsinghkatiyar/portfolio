@@ -42,8 +42,15 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-24 bg-muted/30 relative">
-      <div className="container px-6 mx-auto">
+    <section id="skills" className="py-24 bg-muted/30 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,#8080801a_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:linear-gradient(to_bottom,transparent_10%,#000_50%,transparent_90%)]" />
+      </div>
+
+      <div className="container px-6 mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +62,7 @@ export function Skills() {
             Technical Arsenal
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A comprehensive overview of the tools, frameworks, and patterns I use to build scalable systems.
+            A comprehensive overview of the tools, frameworks, and patterns I use to build scalable systems (and the occasional side project I swear I'll finish someday).
           </p>
         </motion.div>
 

@@ -35,11 +35,11 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted/50 border border-border text-sm font-medium mb-8"
         >
-          <span className="flex h-2 w-2 rounded-full bg-green-500" />
-          Available for new opportunities
+          <span className="text-base">☕</span>
+          Powered by coffee and console.log()
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}

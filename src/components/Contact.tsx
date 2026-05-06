@@ -17,8 +17,13 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="container px-6 mx-auto max-w-4xl text-center">
+    <section id="contact" className="py-24 relative overflow-hidden">
+      {/* Spotlight Effect */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 dark:bg-primary/20 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="container px-6 mx-auto max-w-4xl text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,8 +38,8 @@ export function Contact() {
           </h2>
           
           <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-            I'm currently open for new opportunities. Whether you have a question, a project proposal, 
-            or just want to say hi, I'll try my best to get back to you!
+            Like my vibe? Why don't you hire me and find out! Whether you have a question, a project proposal, 
+            or just want to say hi, my inbox is always open.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">

@@ -28,7 +28,13 @@ export function About() {
 
   return (
     <section id="about" className="py-24 relative overflow-hidden">
-      <div className="container px-6 mx-auto max-w-6xl">
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] -rotate-12" />
+        <div className="absolute inset-0 bg-[radial-gradient(#80808033_1px,transparent_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
+      </div>
+
+      <div className="container px-6 mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:flex-row gap-16 items-start">
           
           {/* Left Column: Text */}
@@ -54,7 +60,7 @@ export function About() {
                   built scalable products from scratch, and focused on building robust, metric-driven solutions.
                 </p>
                 <p>
-                  Beyond just writing code, I am a system thinker. I believe in extreme ownership, 
+                  Beyond just writing code (and occasionally fighting with CSS), I am a system thinker. I believe in extreme ownership, 
                   performance optimization, and integrating AI-agentic tools into development workflows 
                   to deliver high-quality software faster.
                 </p>
