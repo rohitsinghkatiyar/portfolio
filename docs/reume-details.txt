@@ -1,0 +1,87 @@
+Professional Summary
+Senior Frontend Engineer with 4+ years of experience building scalable web and mobile applications using React.js, React Native, TypeScript, and working knowledge of Node.js. Currently developing enterprise-grade manufacturing solutions, contributing to complex modules such as cost simulation, reporting, and data-driven workflows.
+Proven track record of modernizing legacy systems, optimizing performance, and delivering production-ready features across multi-domain products. Strong in component-driven architecture and end-to-end feature ownership.
+Hands-on experience with AI-assisted development and agentic workflows, leveraging LLM tools to automate testing, documentation, and development processes, improving productivity and engineering efficiency.
+Skills 
+•	Frontend Architecture & Scalable UI   Development	•	Mentorship & Code Review	•	Performance Optimization & Maintainability
+•	State Management & Data Flow Design	•	DevOps Awareness	•	Analytical Problem Solving
+•	Product Thinking & Feature Owner-ship	•	Cross-functional Collaboration & Team Leadership	
+
+Technical Skills
+Frontend: React.js, React Native, TypeScript, Redux, Vite, JavaScript (ES6+)
+UI Libraries: MUI, Tailwind CSS, PrimeReact, React Bootstrap
+State & Routing: Redux, React Router
+Charts & Visualization: Chart.js, ReCharts
+SEO & Content: React Helmet, 11ty
+DevOps & Tools: Docker, Google Cloud, Google Play Console, Umami Analytics
+Backend Exposure: Node.js
+AI & Agentic Workflows: Claude Code, Cursor, Codex, Gemini CLI, Roo Code, GitHub Copilot, Aider
+Low/No-Code: Adalo, Bubble.io
+Other: i18next, PlantUML, DLT Registration (India)
+
+Work Experience
+Senior Frontend Engineer                                                                                             Softude - Indore, India | Nov’ 2026 – Present 
+Product: Cost It Right (CIR) — Developed and maintained an enterprise cost management platform for manufacturing operations.    Contributing across costing, simulation, master data, and reporting modules.
+
+•	Built cost simulation features with delta/percentage adjustment support for raw material and BOP categories; fixed complex recalculation bugs involving scrap rates, net cost, and undo/reset flows.
+•	Implemented backend-driven PDF and Excel export for costing data; refactored download flow to use server-side generation.
+•	Created custom PDF report templates for a structural engineering tool, including formula display, dynamic layouts, and pro-ject named file exports.
+•	Led dependency modernization in CIR: React 16 to 18. CRA to Vite. Converted legacy class components to functional              components. Migrated all deprecated libraries and replaced unsupported ones with modern alternatives.
+
+Tech stack: React.js, TypeScript, Redux + Thunk, Docker, i18next , .NET
+
+Senior Frontend Engineer                                                                                              TechRadix - Indore, India| 2021 – Nov’ 2026   
+Key Product Engagement — CashTrac Inc (SaaS Platform Finance Domain, USA)
+Led the development and launch of CashTrac's website and web app, driving a 30% improvement in development efficiency and increasing user engagement by 40% through innovative features and optimization.
+
+•	Built the company’s website and app from scratch; launched MVP in under 90 days
+•	Developed 20+ reusable components and responsive layouts, boosting dev efficiency by 30%
+•	Led and mentored frontend team (2 junior + 1 intern); resolved 10+ critical blockers
+•	Implemented LLM-powered chatbot and visual dashboards, increasing engagement by 40%.
+•	Built 5+ embeddable components for public-sharing use cases (blogs, external platforms).
+•	Designed public-sharing module and responsive mobile UI, improving shareability by 60%.
+•	Integrated Umami analytics for real-time usage tracking.
+•	Launched SEO-optimized blog with 11ty, boosting organic traffic by 50%
+•	Managed 8+ critical modules including auth, routing, planner comparison, and confidence charts.
+Tech Stack: React.js, TypeScript, Redux, Docker, 11ty, React Helmet, Umami, GoLang
+
+
+
+
+
+
+Other Projects at TechRadix
+Delivered 5+ client-facing apps across e-commerce, healthcare, and sports, leading frontend development from scratch with faster load times. Translated complex client specs into user-friendly, mobile-first UI, consistently meeting tight deadlines across diverse industries. 
+
+Porna Satya – Nutrition facts comparison platform
+•	Built PWA with search, login/signup, and food comparison view
+•	Improved load time through Vite and optimization
+Tech: React.js, Vite
+Aforro – Grocery delivery app
+•	Designed animated onboarding, role-based routing, and cart module
+•	Enabled geo-fencing, Google Maps integration, and background location tracking
+Tech: React Native, Django
+Milk Book – Milk delivery tracker
+•	Created custom calendar UI, navigation for 3 roles, and delivery tracking
+•	Improved system efficiency through enhanced delivery date and quantity visualization
+Tech: React Native
+Khele Kya – Turf booking app
+•	Built OTP login, Razorpay integration, and reward-based booking flow
+•	Developed feeds, reusable UI components, and nested navigation
+Tech: React.js, React Native, PrimeReact
+RX Camp – Health camp platform
+•	Built features for bookings, test uploads, and prescriptions
+•	Reduced bounce rate by through responsive components
+Tech: React.js, React Bootstrap
+FerroDeal – B2B steel trading app
+•	Designed and developed complete MVP using Adalo in 2 weeks
+•	Reduced launch costs by over 70% with no-code approach
+Tech: Adalo
+
+Education
+Executive Post Graduate Program (Generative AI & Agentic AI) | IIT Kharagpur | 2026 (ongoing)
+Bachelor of Computer Applications (BCA) | DAVV University — Indore | 2018 – 2021
+
+Certifications
+Generative AI Mastermind — Outskill
+Hands on workshop covering LLM workflows, prompt engineering, and AI-assisted development
