@@ -31,12 +31,12 @@ const MARQUEE_TOKENS = [
 ];
 const MARQUEE_ITEMS = [...MARQUEE_TOKENS, ...MARQUEE_TOKENS, ...MARQUEE_TOKENS];
 
-// Masked line reveal for the masthead
+// Masked line reveal. Padding avoids clipping ascenders/descenders; negative margin cancels it.
 function RevealLine({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const reducedMotion = useReducedMotion();
   if (reducedMotion) return <span className="block">{children}</span>;
   return (
-    <span className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
+    <span className="block overflow-hidden py-[0.3em] -my-[0.3em] px-[0.2em] -mx-[0.2em]">
       <motion.span
         className="block"
         initial={{ y: '110%' }}
@@ -119,7 +119,7 @@ export function Hero() {
       {/* Masthead */}
       <div className="max-w-7xl mx-auto px-6 w-full pt-44 pb-10">
         <h1
-          className="font-display font-medium tracking-tight"
+          className="font-display font-medium tracking-tight flex flex-col"
           style={{ fontSize: 'clamp(3.4rem, 11vw, 9.5rem)', lineHeight: 0.98, color: 'var(--ink)' }}
         >
           <RevealLine delay={0.15}>I build</RevealLine>
