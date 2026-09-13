@@ -1,5 +1,6 @@
 import { cn } from '../utils/utils';
 import { useEffect, useState, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
@@ -15,6 +16,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,10 +26,21 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Closes the menu and unlocks body scroll synchronously, so the browser's
+  // native jump-to-anchor (which fires right after this click handler, before
+  // the overflow-reset effect below gets to run) isn't blocked by `overflow: hidden`.
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = '';
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
-        setIsMobileMenuOpen(false);
+      const target = event.target as Node;
+      const insideHeader = headerRef.current?.contains(target);
+      const insideMobileMenu = mobileMenuRef.current?.contains(target);
+      if (!insideHeader && !insideMobileMenu) {
+        closeMobileMenu();
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -40,7 +53,7 @@ export function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [isMobileMenuOpen]);
 
-  return (
+  const headerEl = (
     <header
       ref={headerRef}
       className={cn(
@@ -108,53 +121,64 @@ export function Navbar() {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu — full-screen paper sheet */}
-      <div
-        className={cn(
-          'md:hidden fixed inset-0 z-40 transition-all duration-500',
-          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        )}
-        style={{ background: 'rgba(250, 246, 239, 0.98)', backdropFilter: 'blur(12px)' }}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-1">
-          {navLinks.map((link, i) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={cn(
-                'font-display text-4xl font-medium transition-all duration-300 py-3',
-                isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              )}
-              style={{ color: 'var(--ink)', transitionDelay: isMobileMenuOpen ? `${i * 60}ms` : '0ms' }}
-            >
-              <sup className="font-mono text-sm align-super mr-2" style={{ color: 'var(--accent)' }}>
-                {link.index}
-              </sup>
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="btn-ink mt-8"
-            style={{ transitionDelay: isMobileMenuOpen ? '420ms' : '0ms' }}
-          >
-            Contact
-          </a>
-        </div>
-
-        {/* Close button */}
-        <button
-          className="absolute top-6 right-6 p-2 transition-colors"
-          style={{ color: 'var(--ink-soft)' }}
-          onClick={() => setIsMobileMenuOpen(false)}
-          aria-label="Close menu"
-        >
-          <X className="h-6 w-6" />
-        </button>
-      </div>
     </header>
+  );
+
+  // Rendered via portal so the header's scrolled `backdrop-blur` (which
+  // creates a new containing block) can't hijack this sheet's `fixed` positioning.
+  const mobileMenu = (
+    <div
+      ref={mobileMenuRef}
+      className={cn(
+        'md:hidden fixed inset-0 z-40 transition-all duration-500',
+        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      )}
+      style={{ background: 'rgba(250, 246, 239, 0.98)', backdropFilter: 'blur(12px)' }}
+    >
+      <div className="flex flex-col items-center justify-center h-full gap-1">
+        {navLinks.map((link, i) => (
+          <a
+            key={link.href}
+            href={link.href}
+            onClick={closeMobileMenu}
+            className={cn(
+              'font-display text-4xl font-medium transition-all duration-300 py-3',
+              isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            )}
+            style={{ color: 'var(--ink)', transitionDelay: isMobileMenuOpen ? `${i * 60}ms` : '0ms' }}
+          >
+            <sup className="font-mono text-sm align-super mr-2" style={{ color: 'var(--accent)' }}>
+              {link.index}
+            </sup>
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          onClick={closeMobileMenu}
+          className="btn-ink mt-8"
+          style={{ transitionDelay: isMobileMenuOpen ? '420ms' : '0ms' }}
+        >
+          Contact
+        </a>
+      </div>
+
+      {/* Close button */}
+      <button
+        className="absolute top-6 right-6 p-2 transition-colors"
+        style={{ color: 'var(--ink-soft)' }}
+        onClick={closeMobileMenu}
+        aria-label="Close menu"
+      >
+        <X className="h-6 w-6" />
+      </button>
+    </div>
+  );
+
+  return (
+    <>
+      {headerEl}
+      {typeof document !== 'undefined' ? createPortal(mobileMenu, document.body) : null}
+    </>
   );
 }
